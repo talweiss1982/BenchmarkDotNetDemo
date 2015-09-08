@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BenchmarkDotNetDemo
 {
@@ -26,8 +22,12 @@ namespace BenchmarkDotNetDemo
 						inlining.RunDemo();
 						break;
 					case 3:
-						var stringBuilder = new StringBuilderDemo();
-						stringBuilder.RunDemo();
+						var loopUnrolling = new LoopUnrollingDemo();
+						loopUnrolling.RunDemo();
+						break;
+					case 4:
+						var cpu_Ilp_Inc = new Cpu_Ilp_Inc_Demo();
+						cpu_Ilp_Inc.RunDemo();
 						break;
 				}
 			}
@@ -39,7 +39,8 @@ namespace BenchmarkDotNetDemo
 			Console.WriteLine("Please select a demo");
 			Console.WriteLine("1 - IFoo.Inc");
 			Console.WriteLine("2 - Inlining");
-			Console.WriteLine("3 - StringBuilder");
+			Console.WriteLine("3 - Loop Unrolling");
+			Console.WriteLine("4 - Instruction-level parallelism ");
 		}
 	}
 }
